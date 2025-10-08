@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Banner - Preetpal Kaur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .banner {
+            width: 1584px;
+            height: 396px;
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .left-panel {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 100%;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+        }
+        
+        .pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+        
+        .pattern-circle {
+            position: absolute;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+        
+        .pc1 { width: 80px; height: 80px; top: 30px; left: 50px; }
+        .pc2 { width: 120px; height: 120px; bottom: 40px; right: 30px; }
+        .pc3 { width: 60px; height: 60px; top: 50%; left: 20%; }
+        
+        .content-area {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 450px;
+            padding-right: 80px;
+        }
+        
+        .name {
+            font-family: 'Arial', sans-serif;
+            font-size: 68px;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            letter-spacing: -2px;
+        }
+        
+        .highlight {
+            color: #ff6b9d;
+        }
+        
+        .role {
+            font-family: 'Arial', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #546e7a;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        
+        .separator {
+            width: 60px;
+            height: 3px;
+            background: #ff6b9d;
+            margin-bottom: 25px;
+        }
+        
+        .description {
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            color: #607d8b;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .expertise {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 25px;
+            justify-content: start;
+        }
+        
+        .expertise-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+            color: #37474f;
+            font-weight: 500;
+        }
+        
+        .icon-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff6b9d;
+            border-radius: 50%;
+        }
+        
+        .decoration-elements {
+            position: absolute;
+            top: 30px;
+            right: 80px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .deco-box {
+            width: 50px;
+            height: 50px;
+            border: 3px solid;
+            border-radius: 10px;
+            animation: rotate 8s linear infinite;
+        }
+        
+        .deco-box:nth-child(1) {
+            border-color: #a8edea;
+            animation-delay: 0s;
+        }
+        
+        .deco-box:nth-child(2) {
+            border-color: #fed6e3;
+            animation-delay: 2s;
+        }
+        
+        .deco-box:nth-child(3) {
+            border-color: #ffeaa7;
+            animation-delay: 4s;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .bottom-accent {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(135deg, transparent 0%, #ffeaa7 100%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            opacity: 0.3;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+        }
+        
+        .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 70px solid #ff6b9d;
+            top: 20%;
+            right: 200px;
+            animation: float-up 6s ease-in-out infinite;
+        }
+        
+        .shape-square {
+            width: 60px;
+            height: 60px;
+            background: #a8edea;
+            top: 65%;
+            right: 350px;
+            transform: rotate(45deg);
+            animation: float-down 7s ease-in-out infinite;
+        }
+        
+        @keyframes float-up {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes float-down {
+            0%, 100% {
+                transform: rotate(45deg) translateY(0);
+            }
+            50% {
+                transform: rotate(45deg) translateY(20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="left-panel">
+            <div class="pattern">
+                <div class="pattern-circle pc1"></div>
+                <div class="pattern-circle pc2"></div>
+                <div class="pattern-circle pc3"></div>
+            </div>
+        </div>
+        
+        <div class="floating-shapes">
+            <div class="shape shape-triangle"></div>
+            <div class="shape shape-square"></div>
+        </div>
+        
+        <div class="decoration-elements">
+            <div class="deco-box"></div>
+            <div class="deco-box"></div>
+            <div class="deco-box"></div>
+        </div>
+        
+        <div class="bottom-accent"></div>
+        
+        <div class="content-area">
+            <div class="name">Preetpal <span class="highlight">Kaur</span></div>
+            <div class="role">UX/UI & Web Designer</div>
+            <div class="separator"></div>
+            <div class="description">
+                Transforming ideas into intuitive and visually stunning digital experiences through thoughtful design and user-centered solutions.
+            </div>
+            <div class="expertise">
+                <div class="expertise-item">
+                    <div class="icon-dot"></div>
+                    <span>User Research</span>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-dot"></div>
+                    <span>Interface Design</span>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-dot"></div>
+                    <span>Prototyping</span>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-dot"></div>
+                    <span>Design Systems</span>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-dot"></div>
+                    <span>Responsive Web</span>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-dot"></div>
+                    <span>Branding</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
